@@ -2,7 +2,7 @@
 kubectl create namespace abc \
 kubectl create namespace xyz \
 kubectl create namespace pqr \
-kubectl get namepsace \
+kubectl get namepsace\
 
 #STEP 2#
 kubectl -n pqr run web --image=nginx --labels app=web --expose --port 80
