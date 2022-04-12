@@ -28,4 +28,4 @@ kubectl get pods -n pqr --show-labels
 (c)exit   
 
 #STEP 6#
-kubectl create -f  
+kubectl create -f  deny_all_traffic.yaml
