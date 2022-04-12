@@ -9,12 +9,12 @@ kubectl -n pqr run web --image=nginx --labels app=web --expose --port 80 \
 kubectl get pods -n pqr \
 kubectl get svc -n pqr \
 kubectl get all -n pqr  \
-kubectl get pods -n pqr --show-labels \
+kubectl get pods -n pqr --show-labels 
 
 
-#STEP 3#
-(a)kubectl -n abc run pod1 --rm -i -t --image=alpine -- /bin/sh
-(b)wget -qO- --timeout=2 http://web.pqr
+#STEP 3# \
+(a)kubectl -n abc run pod1 --rm -i -t --image=alpine -- /bin/sh \
+(b)wget -qO- --timeout=2 http://web.pqr \
 (c)exit
  
 #STEP 4#
