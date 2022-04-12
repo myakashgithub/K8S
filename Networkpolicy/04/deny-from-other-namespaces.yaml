@@ -4,7 +4,8 @@ metadata:
   namespace: pqr
   name: deny-from-other-namespaces
 spec:
-  podSelector:{}
+  podSelector:
+    matchLabels:
   policyTypes:
     - Ingress
   ingress:
