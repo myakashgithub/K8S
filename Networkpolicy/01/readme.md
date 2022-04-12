@@ -36,5 +36,5 @@ Repeat step 3, step 4 , step 5
 
 #########################CLEANUP############################
 
-kubectl delete -f deny_all_traffic.yaml
+kubectl delete -f deny_all_traffic.yaml  <br/>
 kubectl delete namespace abc xyz pqr --force
