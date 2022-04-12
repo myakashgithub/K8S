@@ -1,4 +1,4 @@
-#STEP 1#
+#STEP 1#\
 kubectl create namespace abc
 kubectl create namespace xyz
 kubectl create namespace pqr
