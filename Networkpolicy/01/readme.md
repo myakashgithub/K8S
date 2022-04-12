@@ -2,14 +2,14 @@
 kubectl create namespace abc \
 kubectl create namespace xyz \
 kubectl create namespace pqr \
-kubectl get namepsace\
+kubectl get namepsace
 
-#STEP 2#
-kubectl -n pqr run web --image=nginx --labels app=web --expose --port 80
-kubectl get pods -n pqr
-kubectl get svc -n pqr
-kubectl get all -n pqr 
-kubectl get pods -n pqr --show-labels
+#STEP 2# \
+kubectl -n pqr run web --image=nginx --labels app=web --expose --port 80 \
+kubectl get pods -n pqr \
+kubectl get svc -n pqr \
+kubectl get all -n pqr  \
+kubectl get pods -n pqr --show-labels \
 
 
 #STEP 3#
