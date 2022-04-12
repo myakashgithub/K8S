@@ -69,3 +69,5 @@ kubectl get pod -n xyz
 
 kubectl create -f   deny-from-other-namespaces.yaml       
 kubectl get netpol -n pqr
+
+kubectl delete namespace abc pqr xyz --force
