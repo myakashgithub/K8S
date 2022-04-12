@@ -17,9 +17,9 @@ kubectl -n pqr exec -it application1 -- /bin/bash
 apt-get update -y
 apt-get upgrade -y
 apt-get install wget  
-wget -qO- --timeout=2 http://application1.pqr 
-wget -qO- --timeout=2 http://application2.pqr  
-wget -qO- --timeout=2 http://abcapp.abc       
+wget -qO- --timeout=2 http://application1.pqr    
+wget -qO- --timeout=2 http://application2.pqr      
+wget -qO- --timeout=2 http://abcapp.abc          
 exit  
 
 ##STEP4##   
@@ -27,9 +27,9 @@ kubectl -n pqr exec -it application2 -- /bin/bash
 apt-get update -y
 apt-get upgrade -y
 apt-get install wget     
-wget -qO- --timeout=2 http://application1.pqr 
-wget -qO- --timeout=2 http://application2.pqr  
-wget -qO- --timeout=2 http://abcapp.abc      
+wget -qO- --timeout=2 http://application1.pqr    
+wget -qO- --timeout=2 http://application2.pqr     
+wget -qO- --timeout=2 http://abcapp.abc         
 exit  
 
 ##STEP5##  
@@ -37,9 +37,9 @@ kubectl -n abc exec -it abcapp -- /bin/bash
 apt-get update -y
 apt-get upgrade -y
 apt-get install wget   
-wget -qO- --timeout=2 http://application1.pqr 
-wget -qO- --timeout=2 http://application2.pqr  
-wget -qO- --timeout=2 http://abcapp.abc      
+wget -qO- --timeout=2 http://application1.pqr   
+wget -qO- --timeout=2 http://application2.pqr     
+wget -qO- --timeout=2 http://abcapp.abc         
 exit   
 
 kubectl get pod -n pqr   
