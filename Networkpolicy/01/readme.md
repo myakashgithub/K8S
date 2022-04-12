@@ -27,7 +27,7 @@ kubectl get pods -n pqr --show-labels
 (b)wget -qO- --timeout=2 http://web.pqr \
 (c)exit   
 
-#STEP 6# \
+#STEP 6# <br/>
 kubectl create -f  deny_all_traffic.yaml
 
 #STEP 8#\ 
