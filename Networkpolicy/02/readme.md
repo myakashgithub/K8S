@@ -28,7 +28,8 @@ kubectl get pods -n pqr --show-labels
 (c)exit   
 
 #STEP 6# <br/>
-kubectl create -f  allow_all_traffic.yaml
+kubectl create -f  allow_all_traffic.yaml <br/>
+kubectl get netpol -n pqr 
 
 #STEP 8#\ 
 Repeat step 3, step 4 , step 5
