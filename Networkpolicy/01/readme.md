@@ -28,13 +28,14 @@ kubectl get pods -n pqr --show-labels
 (c)exit   
 
 #STEP 6# <br/>
-kubectl create -f  deny_all_traffic.yaml
+kubectl create -f  web-deny-all.yaml
+kubectl get netpol -n pqr
 
 #STEP 8#\ 
-Repeat step 3, step 4 , step 5
+Repeat step 3, step 4 , step 5 to verif that you can connect to the pod or not
 
 
 #########################CLEANUP############################
 
-kubectl delete -f deny_all_traffic.yaml  <br/>
+kubectl delete -f web-deny-all.yaml  <br/>
 kubectl delete namespace abc xyz pqr --force
