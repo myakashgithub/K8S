@@ -13,9 +13,9 @@ kubectl -n abc run abcapp  --image=nginx --labels app=blog  --expose --port 80
 kubectl -n abc get pod,svc    
 
 ##STEP3##  
-kubectl -n pqr exec -it application1 -- /bin/bash 
-apt-get update -y
-apt-get upgrade -y
+kubectl -n pqr exec -it application1 -- /bin/bash   
+apt-get update -y   
+apt-get upgrade -y    
 apt-get install wget  
 wget -qO- --timeout=2 http://application1.pqr    
 wget -qO- --timeout=2 http://application2.pqr      
@@ -23,9 +23,9 @@ wget -qO- --timeout=2 http://abcapp.abc
 exit  
 
 ##STEP4##   
-kubectl -n pqr exec -it application2 -- /bin/bash
-apt-get update -y
-apt-get upgrade -y
+kubectl -n pqr exec -it application2 -- /bin/bash   
+apt-get update -y    
+apt-get upgrade -y    
 apt-get install wget     
 wget -qO- --timeout=2 http://application1.pqr    
 wget -qO- --timeout=2 http://application2.pqr     
@@ -33,9 +33,9 @@ wget -qO- --timeout=2 http://abcapp.abc
 exit  
 
 ##STEP5##  
-kubectl -n abc exec -it abcapp -- /bin/bash  
-apt-get update -y
-apt-get upgrade -y
+kubectl -n abc exec -it abcapp -- /bin/bash    
+apt-get update -y   
+apt-get upgrade -y    
 apt-get install wget   
 wget -qO- --timeout=2 http://application1.pqr   
 wget -qO- --timeout=2 http://application2.pqr     
