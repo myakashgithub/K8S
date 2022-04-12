@@ -29,3 +29,12 @@ kubectl get pods -n pqr --show-labels
 
 #STEP 6# \
 kubectl create -f  deny_all_traffic.yaml
+
+#STEP 8# \ 
+Repeat step 3, step 4 , step 5
+
+
+#########################CLEANUP############################
+
+kubectl delete -f deny_all_traffic.yaml
+kubectl delete namespace abc xyz pqr --force
