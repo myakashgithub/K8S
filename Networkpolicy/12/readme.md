@@ -1,5 +1,5 @@
 
-####STEP1####   	
+#### STEP1 ####   	   
 kubectl create namespace pqr   
 kubectl create namespace abc
 
