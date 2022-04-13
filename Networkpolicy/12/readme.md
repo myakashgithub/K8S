@@ -39,9 +39,9 @@ wget -qO-  -T 2   -t  2       http://abcapp.abc
 exit  
 
 #### STEP4 CREATE NETWORK POLICY ####     	
-kubectl create -f default-deny-all-egress.yaml
-kubectl get netpol -n pqr
-kubectl describe netpol -n pqr
+kubectl create -f default-deny-all-egress.yaml    
+kubectl get netpol -n pqr   
+kubectl describe netpol -n pqr    
 
 #### NOTE: Repeat ****STEP3*****   ####     
 
