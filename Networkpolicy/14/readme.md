@@ -28,10 +28,10 @@ kubectl -n pqr exec -it application1 -- /bin/bash
 apt-get update -y     
 apt-get upgrade -y     
 apt-get install wget      
-wget -qO- --timeout=2 http://application1.pqr     
-wget -qO- --timeout=2 http://application2.pqr    
-wget -qO- --timeout=2 http://abcapp.abc  
-wget -qO- --timeout=2 http://xyzapp.xyz              
+wget -qO- -T 2   -t  2       http://application1.pqr     
+wget -qO- -T 2   -t  2       http://application2.pqr    
+wget -qO- -T 2   -t  2       http://abcapp.abc  
+wget -qO- -T 2   -t  2       http://xyzapp.xyz              
 exit  
 
 
@@ -39,31 +39,32 @@ kubectl -n pqr exec -it application2 -- /bin/bash
 apt-get update -y     
 apt-get upgrade -y     
 apt-get install wget        
-wget -qO- --timeout=2 http://application1.pqr      
-wget -qO- --timeout=2 http://application2.pqr  
-wget -qO- --timeout=2 http://abcapp.abc  
-wget -qO- --timeout=2 http://xyzapp.xyz              
+wget -qO- -T 2   -t  2       http://application1.pqr      
+wget -qO- -T 2   -t  2       http://application2.pqr  
+wget -qO- -T 2   -t  2       http://abcapp.abc  
+wget -qO- -T 2   -t  2       http://xyzapp.xyz              
 exit  
 
 kubectl -n abc exec -it abcapp -- /bin/bash  
 apt-get update -y     
 apt-get upgrade -y     
 apt-get install wget      
-wget -qO- --timeout=2 http://application1.pqr   
-wget -qO- --timeout=2 http://application2.pqr     
-wget -qO- --timeout=2 http://abcapp.abc    
-wget -qO- --timeout=2 http://xyzapp.xyz                
+wget -qO- -T 2   -t  2       http://application1.pqr   
+wget -qO- -T 2   -t  2       http://application2.pqr     
+wget -qO- -T 2   -t  2       http://abcapp.abc    
+wget -qO- -T 2   -t  2       http://xyzapp.xyz                
 exit  
 
 kubectl -n xyz exec -it xyzapp -- /bin/bash    
 apt-get update -y     
 apt-get upgrade -y     
 apt-get install wget      
-wget -qO- --timeout=2 http://application1.pqr    
-wget -qO- --timeout=2 http://application2.pqr    
-wget -qO- --timeout=2 http://abcapp.abc    
-wget -qO- --timeout=2 http://xyzapp.xyz               
-exit  
+wget -qO- -T 2   -t  2       http://application1.pqr    
+wget -qO- -T 2   -t  2       http://application2.pqr    
+wget -qO- -T 2   -t  2       http://abcapp.abc    
+wget -qO- -T 2   -t  2       http://xyzapp.xyz    
+exit   
+
 ##STEP 4##   
 kubectl get pod -n pqr   
 kubectl get pod -n abc   
