@@ -45,7 +45,7 @@ exit
 
 
 #### CREATE POLICY TO DENY ALL ####    
-kubectl create -f default-deny-all.yaml    
+kubectl create -f default-deny-all-egress.yaml    
 kubectl get netpol -n pqr
 
 #### NOTE: REPEATE **** STEP3 **** BUT DONOT RUN apt-get command . Only RUN wget command . And notice the change ####   
