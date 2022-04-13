@@ -1,8 +1,9 @@
-
+##STEP1##   
 kubectl create namespace pqr  
 kubectl create namespace abc   
 kubectl create namespace xyz
 
+##STEP2###  
 kubectl -n pqr run application1  --image=nginx --labels app=web  --expose --port 80   
 kubectl -n pqr get pod,svc    
 
@@ -22,6 +23,7 @@ kubectl -n xyz run xyzapp  --image=nginx --labels app=blog2  --expose --port 80
 kubectl -n xyz get pod,svc 
 kubectl get pod -n xyz --show-labels  
 
+##STEP3###
 kubectl -n pqr exec -it application1 -- /bin/bash  
 apt-get update -y     
 apt-get upgrade -y     
@@ -62,12 +64,14 @@ wget -qO- --timeout=2 http://application2.pqr
 wget -qO- --timeout=2 http://abcapp.abc    
 wget -qO- --timeout=2 http://xyzapp.xyz               
 exit  
-
+##STEP 4##   
 kubectl get pod -n pqr   
 kubectl get pod -n abc   
 kubectl get pod -n xyz   
 
+#####STEP5 CREATING THE NETWORK POLICY #####
 kubectl create -f   deny-from-other-namespaces.yaml       
 kubectl get netpol -n pqr
 
+###### CLEANING UP THE ENVIRONMENT #####   
 kubectl delete namespace abc pqr xyz --force
