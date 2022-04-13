@@ -3,7 +3,7 @@
 kubectl create namespace pqr   
 kubectl create namespace abc
 
-####STEP2####         	
+####STEP2            	
 kubectl -n pqr run pqrapp1 --image=nginx --labels app=front --expose --port 80   
 kubectl -n pqr run  pqrapp2 --image=nginx --labels app=back  --expose --port 80   
 kubectl -n abc run  abcapp  --image=nginx --labels app=web --expose --port 80   
