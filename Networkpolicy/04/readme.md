@@ -15,13 +15,13 @@ kubectl get pod -n pqr --show-labels
 
 
 
-kubectl -n abc run abcapp  --image=nginx --labels app=blog1  --expose --port 80   
-kubectl -n abc get pod,svc 
-kubectl get pod -n abc --show-labels   
+kubectl -n abc run abcapp  --image=nginx --labels app=blog1  --expose --port 80    
+kubectl -n abc get pod,svc   
+kubectl get pod -n abc --show-labels     
 
-kubectl -n xyz run xyzapp  --image=nginx --labels app=blog2  --expose --port 80   
-kubectl -n xyz get pod,svc   
-kubectl get pod -n xyz --show-labels  
+kubectl -n xyz run xyzapp  --image=nginx --labels app=blog2  --expose --port 80    
+kubectl -n xyz get pod,svc     
+kubectl get pod -n xyz --show-labels    
 
 ##STEP3###    
 kubectl -n pqr exec -it application1 -- /bin/bash  
