@@ -1,0 +1,14 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: pqr
+  name: deny-from-other-namespaces-egress
+spec:
+  podSelector:
+    matchLabels:
+  policyTypes:
+    - egress
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
