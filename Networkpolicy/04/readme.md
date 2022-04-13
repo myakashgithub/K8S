@@ -35,7 +35,7 @@ wget -qO- --timeout=2 http://xyzapp.xyz
 exit  
 
 
-kubectl -n pqr exec -it application2 -- /bin/bash
+kubectl -n pqr exec -it application2 -- /bin/bash    
 apt-get update -y     
 apt-get upgrade -y     
 apt-get install wget        
