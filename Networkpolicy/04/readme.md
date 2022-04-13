@@ -69,7 +69,7 @@ kubectl get pod -n pqr
 kubectl get pod -n abc   
 kubectl get pod -n xyz   
 
-#####STEP5 CREATING THE NETWORK POLICY #####
+#####STEP5 CREATING THE NETWORK POLICY #####    
 kubectl create -f   deny-from-other-namespaces.yaml       
 kubectl get netpol -n pqr
 
