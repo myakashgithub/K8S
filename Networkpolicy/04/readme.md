@@ -23,7 +23,7 @@ kubectl -n xyz run xyzapp  --image=nginx --labels app=blog2  --expose --port 80
 kubectl -n xyz get pod,svc 
 kubectl get pod -n xyz --show-labels  
 
-##STEP3###
+##STEP3###    
 kubectl -n pqr exec -it application1 -- /bin/bash  
 apt-get update -y     
 apt-get upgrade -y     
