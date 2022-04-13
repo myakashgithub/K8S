@@ -71,9 +71,9 @@ kubectl get pod -n abc
 kubectl get pod -n xyz   
 
 #####STEP5 CREATING THE NETWORK POLICY #####    
-kubectl create -f   deny-from-other-namespaces.yaml    
+kubectl create -f   deny-from-other-namespaces-egress.yaml    
 
-#### NOTE: You can use other file  **deny-from-other-namespaces_1.yaml**   **deny-from-other-namespaces_2.yaml** it will server the same purpose  
+#### NOTE: You can use other file  **** deny-from-other-namespaces-egress_1.yaml ****   **** deny-from-other-namespaces-egress_2.yaml **** it will server the same purpose ####   
 
 kubectl get netpol -n pqr
 
