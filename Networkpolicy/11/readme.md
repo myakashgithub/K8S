@@ -1,4 +1,4 @@
-###STEP 1###	
+#### STEP 1 ####	   
 kubectl create namespace pqr   
 
 ### STEP 2 ###   
