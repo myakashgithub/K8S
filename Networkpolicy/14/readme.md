@@ -1,56 +1,82 @@
-#### STEP1 ####     
+##STEP1##   
 kubectl create namespace pqr  
 kubectl create namespace abc   
+kubectl create namespace xyz
 
-####  STEP2  ####      
-kubectl -n pqr run application1  --image=nginx --labels app=api  --expose --port 80   
+##STEP2###  
+kubectl -n pqr run application1  --image=nginx --labels app=web  --expose --port 80   
 kubectl -n pqr get pod,svc    
 
-kubectl -n pqr run application2  --image=nginx --labels app=guestbook  --expose --port 80   
-kubectl -n pqr get pod,svc   
+kubectl -n pqr run application2  --image=nginx --labels app=db  --expose --port 80   
+kubectl -n pqr get pod,svc  
 
-kubectl -n abc run abcapp  --image=nginx --labels app=blog  --expose --port 80   
-kubectl -n abc get pod,svc    
+kubectl get pod -n pqr --show-labels 
 
-#### STEP3 ####    
 
-kubectl -n pqr exec -it application1 -- /bin/bash   
-apt-get update -y   
-apt-get upgrade -y    
-apt-get install wget  
-wget -qO- -T 2   -t  2       http://application1.pqr    
-wget -qO- -T 2   -t  2       http://application2.pqr      
-wget -qO- -T 2   -t  2       http://abcapp.abc          
+
+
+kubectl -n abc run abcapp  --image=nginx --labels app=blog1  --expose --port 80    
+kubectl -n abc get pod,svc   
+kubectl get pod -n abc --show-labels     
+
+kubectl -n xyz run xyzapp  --image=nginx --labels app=blog2  --expose --port 80    
+kubectl -n xyz get pod,svc     
+kubectl get pod -n xyz --show-labels    
+
+##STEP3###    
+kubectl -n pqr exec -it application1 -- /bin/bash  
+apt-get update -y     
+apt-get upgrade -y     
+apt-get install wget      
+wget -qO- --timeout=2 http://application1.pqr     
+wget -qO- --timeout=2 http://application2.pqr    
+wget -qO- --timeout=2 http://abcapp.abc  
+wget -qO- --timeout=2 http://xyzapp.xyz              
 exit  
 
 
-kubectl -n pqr exec -it application2 -- /bin/bash   
-apt-get update -y    
-apt-get upgrade -y    
-apt-get install wget     
-wget -qO- -T 2   -t  2       http://application1.pqr    
-wget -qO- -T 2   -t  2       http://application2.pqr     
-wget -qO- -T 2   -t  2       http://abcapp.abc         
+kubectl -n pqr exec -it application2 -- /bin/bash    
+apt-get update -y     
+apt-get upgrade -y     
+apt-get install wget        
+wget -qO- --timeout=2 http://application1.pqr      
+wget -qO- --timeout=2 http://application2.pqr  
+wget -qO- --timeout=2 http://abcapp.abc  
+wget -qO- --timeout=2 http://xyzapp.xyz              
 exit  
 
- 
-kubectl -n abc exec -it abcapp -- /bin/bash    
-apt-get update -y   
-apt-get upgrade -y    
-apt-get install wget   
-wget -qO- -T 2   -t  2       http://application1.pqr   
-wget -qO- -T 2   -t  2       http://application2.pqr     
-wget -qO- -T 2   -t  2       http://abcapp.abc         
-exit   
+kubectl -n abc exec -it abcapp -- /bin/bash  
+apt-get update -y     
+apt-get upgrade -y     
+apt-get install wget      
+wget -qO- --timeout=2 http://application1.pqr   
+wget -qO- --timeout=2 http://application2.pqr     
+wget -qO- --timeout=2 http://abcapp.abc    
+wget -qO- --timeout=2 http://xyzapp.xyz                
+exit  
 
+kubectl -n xyz exec -it xyzapp -- /bin/bash    
+apt-get update -y     
+apt-get upgrade -y     
+apt-get install wget      
+wget -qO- --timeout=2 http://application1.pqr    
+wget -qO- --timeout=2 http://application2.pqr    
+wget -qO- --timeout=2 http://abcapp.abc    
+wget -qO- --timeout=2 http://xyzapp.xyz               
+exit  
+##STEP 4##   
+kubectl get pod -n pqr   
+kubectl get pod -n abc   
+kubectl get pod -n xyz   
 
-#### CREATE POLICY TO DENY ALL ####    
-kubectl create -f default-deny-all-egress.yaml    
+#####STEP5 CREATING THE NETWORK POLICY #####    
+kubectl create -f   deny-from-other-namespaces.yaml    
+
+#### NOTE: You can use other file  **deny-from-other-namespaces_1.yaml**   **deny-from-other-namespaces_2.yaml** it will server the same purpose  
+
 kubectl get netpol -n pqr
 
-#### NOTE: REPEATE **** STEP3 **** BUT DONOT RUN apt-get command . Only RUN wget command . And notice the change ####   
-
-#### CLEAN UP ####  
-
-kubectl delete namespace pqr abc --force   
-
+##### REPEAT STEP 3 ######   
+Note: Notice the change
+###### CLEANING UP THE ENVIRONMENT #####   
+kubectl delete namespace abc pqr xyz --force
