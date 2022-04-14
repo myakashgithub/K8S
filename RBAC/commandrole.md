@@ -18,7 +18,7 @@ kubectl get rolebinding mybinding -n abc
 kubectl describe  rolebinding mybinding -n abc    
 
 #### VERIFICATION ####   
-kubectl auth can-i list pod --as=system:serviceaccount:abc:mysa -n abc   
+kubectl auth can-i list pod --as=system:serviceaccount:pqr:mysa -n abc   
 kubectl auth can-i delete  pod  --as=system:serviceaccount:abc:mysa -n abc   
 kubectl auth can-i delete deployment   --as=system:serviceaccount:abc:mysa -n abc   
 kubectl auth can-i list  deployment   --as=system:serviceaccount:abc:mysa -n abc   
